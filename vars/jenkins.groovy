@@ -38,9 +38,9 @@ def call(body) {
                     checkout scm
                     script {
                         //sh "ls -la"
-                        //sh 'printenv'
+                        sh 'printenv'
                         Yml yml = new Yml (this)
-                        def ymlFile = yml.readFile("version")
+                        def ymlFile = yml.readFileYml("version")
                         println(ymlFile)
                     }
                 }

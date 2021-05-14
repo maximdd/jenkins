@@ -8,17 +8,17 @@ class Yml {
         this.context = context
     }
 
-    public String readFile(String variable) {
-        File file = new File("/var/jenkins_home/workspace/OAI_master@libs/jenkins/resources/bamboo.yml")
+    public String readFileYml(String variable) {
+        //File file = new File("/var/jenkins_home/workspace/OAI_master@libs/jenkins/resources/bamboo.yml")
         //def datas = context.readYaml text: file.text
         //readYaml()
         //def datas = context.readYaml text: file.text
 
-        context.sh 'ls -la ${WORKSPACE}'
-        def datas = readFile "${WORKSPACE}/bamboo.yml"
-
-        //return datas[0].version
+       // context.sh 'ls -la ${WORKSPACE}'
+        def datas = context.readFile "${context.env.WORKSPACE}/bamboo.yml"
+        def ymlMap = context.readYaml text: datas
+        return ymlMap[0].version
         //return context.test
-        return 0
+        //eturn "str"
     }
 }
