@@ -15,7 +15,7 @@ class Yml {
         //def datas = context.readYaml text: file.text
 
        // context.sh 'ls -la ${WORKSPACE}'
-        def datas = readFile "${context.env.WORKSPACE}/bamboo.yml"
+        def datas = context.readFile "${context.env.WORKSPACE}/bamboo.yml"
 
         //return datas[0].version
         //return context.test
